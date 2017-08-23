@@ -66,7 +66,7 @@ detector.on('silence', function () {
       let r = res.result
       if (r && r.length > 0) {
         client.text2audio(r.join(''), { per: 1 }).then(function (result) {
-          // console.log('百度文字转语音'.red, result)
+          console.log('百度文字转语音'.red, result)
           fs.writeFileSync('./temp.mp3', result.data);
           player.play('./temp.mp3', function (err) {
             setTimeout(() => {
@@ -128,6 +128,7 @@ detector.on('hotword', function (index, hotword, buffer) {
   console.log('嗯，你说...')
   player.play('./resources/dong.wav', function (err) {
     console.log('dongdong结束+++++++++++++++++++++++++++++++++++')
+    // 记录ding完毕到沉默的时间差，防止每次都识别不出 TODO
     if (err) {
       console.log(err.red)
     }

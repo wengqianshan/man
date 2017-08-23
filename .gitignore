@@ -2,4 +2,6 @@
 config.js
 temp.mp3
 origin.wav
+tts-aliyun.wav
+tts-baidu.mp3
 node_modules/
